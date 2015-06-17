@@ -1,3 +1,13 @@
+###############################################################################
+# This work is licensed under the Creative Commons Attribution 3.0 License.
+# To view a copy of this license, visit
+# http://creativecommons.org/licenses/by/3.0/ or send a letter to
+# Creative Commons, 171 Second Street, Suite 300, San Francisco, California,
+# 94105, USA.
+# Must link to this sites to use
+# http://www.segonquart.net, http://www.askapache.com/
+#
+###############################################################################
 
 
 <FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
@@ -5,9 +15,7 @@ Order Allow,Deny
 Deny from all
 </FilesMatch>
 
-
 LimitRequestBody 10240000
-
 
 Options -Indexes
 DirectoryIndex index.html index.php /index.php
@@ -15,7 +23,6 @@ DirectoryIndex index.html index.php /index.php
 <IfModule mod_alias.c>
 RedirectMatch 403 /(.*)/xmlrpc\.php$
 </IfModule>
-
 
 <files wp-config.php>
 order allow,deny
@@ -29,7 +36,6 @@ AddType application/octet-stream .mov .mp3 .zip
 AddDefaultCharset UTF-8
 
 
-
 Options -ExecCGI
 
 
@@ -39,7 +45,6 @@ RewriteRule .* - [F]
 SetEnvIfNoCase ^User-Agent$ .*(craftbot|download|extract|stripper|sucker|ninja|clshttp|webspider|leacher|collector|grabber|webpictures) HTTP_SAFE_BADBOT
 SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT
 Deny from env=HTTP_SAFE_BADBOT
-
 
 
 SetEnvIfNoCase ^If-Modified-Since$ "(.+)" HTTP_IF_MODIFIED_SINCE=$1
