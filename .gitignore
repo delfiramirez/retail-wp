@@ -1,6 +1,4 @@
 *.log
-.htaccess
-sitemap.xml
 sitemap.xml.gz
 wp-config.php
 wp-content/advanced-cache.php
@@ -11,3 +9,8 @@ wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
+
+/nbproject
+build.xml
+
+.DS_Stoe
