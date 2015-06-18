@@ -1,5 +1,7 @@
 
-body , .login{
+body , 
+.login
+{
 
     background: #ffffff;
     font-family: Arial, Helvetica ,sans-serif;
@@ -9,6 +11,7 @@ body , .login{
     vertical-align: top;
     text-rendering: optimizeLegibility;
 }
+
 .background-cover
 {
     background:url(http://wwww.rotulosagarra.com/public/images/bg.png) no-repeat center center fixed; 
@@ -25,12 +28,15 @@ body , .login{
     height:100%;
 
 } 
-#login, #loginform
+
+#login, 
+#loginform
 {
     z-index:9999; 
     position:relative;
     opacity: .7;
 }
+
 .login form 
 {
     -moz-box-shadow: 2px 0px 2px 0px !important;
@@ -39,11 +45,15 @@ body , .login{
     background:#0f3647;
     opacity: .7;
 }
+
 .login h1 a
 {
     background:url(http://wwww.rotulosagarra.com/public/images/logo.png) no-repeat center top !important; 
 } 
-input.button-primary, button.button-primary, a.button-primary
+
+input.button-primary, 
+button.button-primary,
+a.button-primary
 {
     -moz-border-radius: 3px !important;
     -webkit-border-radius: 3px !important;
@@ -54,24 +64,33 @@ input.button-primary, button.button-primary, a.button-primary
     font-weight:normal !important;
     text-shadow:none !important;
 }
-.button:active, .submit input:active, .button-secondary:active
+
+.button:active, 
+.submit input:active, 
+.button-secondary:active
 {
     background:#0f3647 !important; 
     text-shadow: none !important;
 
 }
-.login #nav a, .login #backtoblog a
+
+.login #nav a, 
+.login #backtoblog a
 {
     font-family: "Museo500Regular",sans-serif;
     color: #21759b !important;
     text-shadow: none !important;
 }
-.login #nav a:hover, .login #backtoblog a:hover
+
+.login #nav a:hover, 
+.login #backtoblog a:hover
 {
     color: #0f3647 !important;
     text-shadow: none !important;
 }
-.login #nav, .login #backtoblog
+
+.login #nav, 
+.login #backtoblog
 {
     text-shadow: none !important;
 }
