@@ -2,7 +2,9 @@
 
 aka framework-wp templates.
 
-Wordpress Template custom Theme for your Ipad et al. Circa 2013.
+Wordpress Template custom Theme for Rotulos Sagarra SA.
+
+Focused on tablets, Ipad et al. Circa 2013.
 
 
 Copyright Delfi Ramirez @ Segonquart Studio HQ 2013-2014.
@@ -11,4 +13,4 @@ Copyright Delfi Ramirez @ Segonquart Studio HQ 2013-2014.
 All other content copyright or licensed by their respective authors.
 
 
-For educational or recreational purposes.
+A professional template brought here, for educational or recreational purposes.
