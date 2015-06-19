@@ -7,6 +7,9 @@ if (is_page_template() || is_attachment() || !is_active_sidebar('')) {
     $content_width = 850;
 }
 
+include 'templates/custom-admin-function.php';
+include 'templates/custom-admin-cssLogin.php';
+
 // Register Theme Features
    /* ----------------------------------------------------------------------------------- */
    function custom_theme_features() {
@@ -34,8 +37,14 @@ add_post_type_support('page', 'excerpt');
 /* ----------------------------------------------------------------------------------- */
 add_theme_support('menus');
 
+remove_action('begin_fetch_post_thumbnail_html', '_wp_post_thumbnail_class_filter_add');
+
+
+
 /* ----------------------------------------------------------------------------------- */
 add_filter('ngettext', 'wps_remove_theme_name');
+
+add_filter('the_generator', '__return_false');
 
 add_filter('gallery_style', create_function('$css', 'return preg_replace("#<style type=\'text/css\'>(.*?)</style>#s", "", $css);'));
 
@@ -47,24 +56,11 @@ add_filter('jetpack_enable_open_graph', '__return_false', 99);
 
 defined('JETPACK__API_BASE') or define('JETPACK__API_BASE', 'https://jetpack.wordpress.com/jetpack.');
 define('JETPACK__API_VERSION', 1);
+
 remove_action('wp_head', 'jetpack_og_tags');
 
-function unregister_default_sagarra_widgets() {
-    unregister_widget('WP_Widget_Calendar');
-    unregister_widget('WP_Widget_Archives');
-    unregister_widget('WP_Widget_Links');
-    unregister_widget('WP_Widget_Meta');
-    unregister_widget('WP_Widget_Text');
-    unregister_widget('WP_Widget_Categories');
-    unregister_widget('WP_Widget_Recent_Posts');
-    unregister_widget('WP_Widget_Recent_Comments');
-    unregister_widget('WP_Widget_RSS');
-}
 
-add_action('widgets_init', 'unregister_default_sagarra_widgets', 1);
 
-//WIDGETS : Registra Menus para el tema
-/* ----------------------------------------------------------------------------------- */
 function sagarra_menus() {
     register_nav_menus(
             array(
@@ -79,7 +75,6 @@ function sagarra_menus() {
 }
 
 add_action('init', 'sagarra_menus');
-
 
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 
@@ -112,6 +107,7 @@ function sagarra_trim_excerpt($text) {
     }
     return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
 }
+
 
 /* ----------------------------------------------------------------------------------- */
 /* Fix and remove /category/ */
@@ -220,7 +216,6 @@ function string_limit_words($string, $word_limit) {
     return implode(' ', $words);
 }
 
-/* ----------------------------------------------------------------------------------- */
 if (!function_exists('sagarra_canonical_url')):
 
     function sagarra_canonical_url($echo = true) {
@@ -243,13 +238,29 @@ if (!function_exists('sagarra_canonical_url')):
 
 endif;
 
-/* ----------------------------------------------------------------------------------- */
 if (!function_exists('sagarra_mime_types')):
 
     function sagarra_mime_types($mime_types) {
         $mime_types['ico'] = 'image/x-icon';
 
         return $mime_types;
+    }
+
+endif;
+
+if (!function_exists('show_posts_nav')):
+
+    function show_posts_nav() {
+        global $wp_query;
+        return ($wp_query->max_num_pages > 1);
+    }
+
+endif;
+
+if (!function_exists('sagarra_jpeg_quality')):
+
+    function sagarra_jpeg_quality($quality) {
+        return 100;
     }
 
 endif;
@@ -270,27 +281,6 @@ add_filter('upload_mimes', 'sagarra_mime_types');
 
 add_filter('delfi_allowed_mime_types', 'delfi_allowed_mime_types');
 
-/* ----------------------------------------------------------------------------------- */
-if (!function_exists('show_posts_nav')):
-
-    function show_posts_nav() {
-        global $wp_query;
-        return ($wp_query->max_num_pages > 1);
-    }
-
-endif;
-
-/* -----------------------------------------------------------------------------------------------------//
-  /* Modify jpeg Quality
-  ------------------------------------------------------------------------------------------------------- */
-if (!function_exists('sagarra_jpeg_quality')):
-
-    function sagarra_jpeg_quality($quality) {
-        return 100;
-    }
-
-endif;
-
 function elimina_ptags_en_images($content) {
     return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
@@ -309,11 +299,20 @@ function sagarra_imagelink_setup() {
 }
 
 add_action('admin_init', 'sagarra_imagelink_setup', 10);
-/* ----------------------------------------------------------------------------------- */
-/* ADMIN PANEL: Remove Unwanted Admin Menu Items */
-/* ----------------------------------------------------------------------------------- */
 
-add_theme_support('menus');
+function unregister_default_sagarra_widgets() {
+    unregister_widget('WP_Widget_Calendar');
+    unregister_widget('WP_Widget_Archives');
+    unregister_widget('WP_Widget_Links');
+    unregister_widget('WP_Widget_Meta');
+    unregister_widget('WP_Widget_Text');
+    unregister_widget('WP_Widget_Categories');
+    unregister_widget('WP_Widget_Recent_Posts');
+    unregister_widget('WP_Widget_Recent_Comments');
+    unregister_widget('WP_Widget_RSS');
+}
+
+add_action('widgets_init', 'unregister_default_sagarra_widgets', 1);
 
 add_filter('the_content', 'filter_ptags_on_images');
 
@@ -395,30 +394,28 @@ add_action('wp_print_scripts', 'no_autosave');
 function remove_menus() {
     global $submenu;
 
+    remove_menu_page('link-manager.php'); 
+    remove_menu_page('edit-comments.php'); 
 
-    remove_menu_page('link-manager.php'); // Links
-    remove_menu_page('edit-comments.php'); // Comments
+    remove_menu_page('users.php'); 
 
-    remove_menu_page('users.php'); // Users
+    unset($submenu['themes.php'][5]); 
+    unset($submenu['options-general.php'][15]); 
+    unset($submenu['options-general.php'][25]);
+    unset($submenu['tools.php'][5]);
+    unset($submenu['tools.php'][10]); 
+    unset($submenu['tools.php'][15]);
 
-    unset($submenu['themes.php'][5]); // Removes 'Themes'.
-    unset($submenu['options-general.php'][15]); // Removes 'Writing'.
-    unset($submenu['options-general.php'][25]); // Removes 'Discussion'.
-    unset($submenu['tools.php'][5]); // Removes 'Available Tools'.
-    unset($submenu['tools.php'][10]); // Removes 'Import'.
-    unset($submenu['tools.php'][15]); // Removes 'Export'.
+    remove_submenu_page('index.php', 'update-core.php');
+    remove_submenu_page('themes.php', 'themes.php'); 
+    remove_submenu_page('themes.php', 'widgets.php');
+    remove_submenu_page('themes.php', 'theme-editor.php'); 
 
-    remove_submenu_page('index.php', 'update-core.php');    //Dashboard->Updates
-    remove_submenu_page('themes.php', 'themes.php'); // Appearance-->Themes
-    remove_submenu_page('themes.php', 'widgets.php'); // Appearance-->Widgets
-    remove_submenu_page('themes.php', 'theme-editor.php'); // Appearance-->Editor
+    remove_submenu_page('options-general.php', 'options-general.php?page=viper-jquery-lightbox'); 
+    remove_submenu_page('options-general.php', 'options-writing.php');
 
-    remove_submenu_page('options-general.php', 'options-general.php?page=viper-jquery-lightbox'); // Settings->General
-    remove_submenu_page('options-general.php', 'options-writing.php'); // Settings->writing
-
-    remove_submenu_page('options-general.php', 'options-discussion.php'); // Settings->Discussion
-
-    remove_submenu_page('options-general.php', 'options-privacy.php'); // Settings->Privacy
+    remove_submenu_page('options-general.php', 'options-discussion.php'); 
+    remove_submenu_page('options-general.php', 'options-privacy.php'); 
 }
 
 add_action('manage_users_columns', 'remove_user_posts_column');
@@ -432,16 +429,6 @@ if (!function_exists('remove_user_posts_column')) :
     }
 
 endif;
-
-/* -----------------------------------------------------------------------------------
-  DESIGN: Wordpress wp-post-image class remover
-  /*----------------------------------------------------------------------------------- */
-remove_action('begin_fetch_post_thumbnail_html', '_wp_post_thumbnail_class_filter_add');
-
-/* -----------------------------------------------------------------------------------
- * HEADER: Remove the WordPress version from RSS feeds
-  /*----------------------------------------------------------------------------------- */
-add_filter('the_generator', '__return_false');
 
 function drop_bad_comments() {
     if (!empty($_POST['comment'])) {
@@ -490,10 +477,6 @@ function drop_bad_comments() {
 
 add_action('init', 'drop_bad_comments');
 
-
-/* custom walker that only shows the menuitem's ID's (and active items get active classes), delevering clean menu code (in WordPress > 3.0)
- */
-
 class hermit_walker extends Walker_Nav_Menu {
 
     function start_el(&$output, $item, $depth, $args) {
@@ -509,7 +492,7 @@ class hermit_walker extends Walker_Nav_Menu {
         $newClasses = array();
 
         foreach ($classes as $el) {
-            //check if it's indicating the current page, otherwise we don't need the class
+      
             if (in_array($el, $current_indicators)) {
                 array_push($newClasses, $el);
             }
@@ -528,7 +511,7 @@ class hermit_walker extends Walker_Nav_Menu {
         $attributes .=!empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
         if ($depth != 0) {
-            //children stuff, maybe you'd like to store the submenu's somewhere?
+         
         }
 
         $item_output = $args->before;
@@ -1052,13 +1035,8 @@ add_action('login_head', 'sagarra_login_head');
    }
 
    add_filter('wp_link_pages_args', 'wp_link_pages_args_prevnext_add');
-
-
-   /* ---------------------------------
-     Deal with WP empty paragraphcs
-     /*----------------------------------------------------------------------------------- */
-
-   function delfi_formatter($content) {
+   
+function delfi_formatter($content) {
 
        $bad_content = array('<p></div></p>', '<p><div class="full', '_width"></p>', '</div></p>', '<p><ul', '</ul></p>', '<p><div', '<p><block', 'quote></p>', '<p><hr /></p>', '<p><table>', '<td></p>', '<p></td>', '</table></p>', '<p></div>', 'nosidebar"></p>', '<p><p>', '<p><a', '</a></p>', '-half"></p>', '-third"></p>', '-fourth"></p>', '<p><p', '</p></p>', 'child"></p>', '<p></p>', '-fifth"></p>', '-sixth"></p>', 'last"></p>', 'fix" /></p>', '<p><hr', '<p><li', '"centered"></p>', '</li></p>', '<div></p>', '<p></ul>', '<p><img', ' /></p>', '"nop"></p>', 'tures"></p>', '"left"></p>', '<p><h1 class="center">', 'centered"></p>');
        $good_content = array('</div>', '<div class="full', '_width">', '</div>', '<ul', '</ul>', '<div', '<block', 'quote>', '<hr />', '<table>', '<td>', '</td>', '</table>', '</div>', 'nosidebar">', '<p>', '<a', '</a>', '-half">', '-third">', '-fourth">', '<p', '</p>', 'child">', '', '-fifth">', '-sixth">', 'last">', 'fix" />', '<hr', '<li', '"centered">', '</li>', '<div>', '</ul>', '<img', ' />', '"nop">', 'tures">', '"left">', '<h1 class="center">', 'centered">');
@@ -1071,11 +1049,7 @@ add_action('login_head', 'sagarra_login_head');
    add_filter('the_content', 'wpautop', 10);
    add_filter('the_content', 'delfi_formatter', 11);
 
-   /* ---------------------------------
-     Fix empty search issue
-     /*----------------------------------------------------------------------------------- */
-
-   function delfi_request_filter($query_vars) {
+function delfi_request_filter($query_vars) {
        if (isset($_GET['s']) && empty($_GET['s'])) {
            $query_vars['s'] = " ";
        }
@@ -1084,10 +1058,9 @@ add_action('login_head', 'sagarra_login_head');
 
    add_filter('request', 'delfi_request_filter');
 
-
    /* ----------------------------------------------------------------------------------- */
 
-//WIDGETS : Registro de barra lateral
+//WIDGETS
    /* ----------------------------------------------------------------------------------- */
    function delfi_widgets_init() {
        if (function_exists('register_sidebar'))
@@ -1122,7 +1095,7 @@ add_action('login_head', 'sagarra_login_head');
    }
 
    add_action('init', 'delfi_widgets_init');
-   /* ----------------------------------------------------------------------------------- */
+ 
 
    function excerpt($limit) {
        $excerpt = explode(' ', get_the_excerpt(), $limit);
@@ -1136,7 +1109,6 @@ add_action('login_head', 'sagarra_login_head');
        return $excerpt;
    }
 
-   /* ----------------------------------------------------------------------------------- */
 
    function content($limit) {
        $content = explode(' ', get_the_content(), $limit);
@@ -1152,9 +1124,6 @@ add_action('login_head', 'sagarra_login_head');
        return $content;
    }
 
-   /* ------------------------------------------------------------------------------------
-     Strip inline width and height attributes from WP generated images
-     /*----------------------------------------------------------------------------------- */
 
    function remove_thumbnail_dimensions($html) {
        $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
@@ -1164,11 +1133,7 @@ add_action('login_head', 'sagarra_login_head');
    add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
    add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
 
-
-   /* -----------------------------------------------------------------------------------
-    * Segonquart Custom Template
-    *
-     /*----------------------------------------------------------------------------------- */
+/
 
    add_filter('the_content', 'make_clickable');
    /* ----------------------------------------------------------------------------------- */
@@ -1330,7 +1295,7 @@ add_action('wp_footer', 'sagarra_IEhtml5_shim');
 
 /* ----------------------------------------------------------------------------------- */
 
-// ADMIN: Cambia Post por Article
+// ADMIN: 
 /* ----------------------------------------------------------------------------------- */
 
 
@@ -1364,7 +1329,7 @@ if ($user_ID) {
 }
 
 /* ----------------------------------------------------------------------------------- */
-// ADMIN LOGIN : @desc update logo URL to point towards DI
+// ADMIN LOGIN : 
 /* ----------------------------------------------------------------------------------- */
 add_filter('login_headerurl', 'custom_login_header_url');
 
@@ -1374,7 +1339,7 @@ function custom_login_header_url($url) {
 
 /* ----------------------------------------------------------------------------------- */
 
-// ADMIN LOGIN:  Personalizacion del panel de acceso
+// ADMIN LOGIN: 
 /* ----------------------------------------------------------------------------------- */
 
 function elimina_lostpassword_text($text) {
@@ -1396,7 +1361,7 @@ function elimina_volver_text($text) {
 add_filter('gettext', 'elimina_volver_text');
 /* ----------------------------------------------------------------------------------- */
 
-// ADMIN LOGIN:  Login con usuario
+// ADMIN LOGIN:
 /* ----------------------------------------------------------------------------------- */
 function login_con_email($username) {
     $user = get_user_by_email($username);
@@ -1757,20 +1722,9 @@ function style_sagarra_menu_class($items) {
 
 add_filter('wp_nav_menu_objects', 'style_sagarra_menu_class');
 
-
-/* -----------------------------------------------------------------------------------
- * Autor del site en G+
- *
-  /*----------------------------------------------------------------------------------- */
-add_action('wp_head', 'google_web_author');
-
-function google_web_author() {
-    echo '<link rel="author" href="https://plus.google.com/+DelfiRamirez" />';
-}
-
 /* ----------------------------------------------------------------------------------- */
 
-// ADMIN LOGIN:  Cambiar el link de web en pagina de registro
+// ADMIN LOGIN: 
 /* ----------------------------------------------------------------------------------- */
 function change_sagarra_login_url() {
     return get_home_url();
@@ -1779,7 +1733,7 @@ function change_sagarra_login_url() {
 add_filter('login_headerurl', 'change_sagarra_login_url');
 /* ----------------------------------------------------------------------------------- */
 
-// ADMIN LOGIN:  Cambiar el atributo de web en pagina de registro
+// ADMIN LOGIN:
 /* ----------------------------------------------------------------------------------- */
 
 function change_sagarra_login_title() {
@@ -1787,6 +1741,17 @@ function change_sagarra_login_title() {
 }
 
 add_filter('login_headertitle', 'change_sagarra_login_title');
+
+function howdy_replace($wp_admin_bar) {
+    $my_account = $wp_admin_bar->get_node('my-account');
+    $newtitle = str_replace('Howdy,', 'Rotulos Sagarra', $my_account->title);
+    $wp_admin_bar->add_node(array(
+        'id' => 'my-account',
+        'title' => $newtitle,
+    ));
+}
+
+add_filter('admin_bar_menu', 'howdy_replace', 25);
 
 /* ----------------------------------------------------------------------------------- */
 
@@ -1915,16 +1880,8 @@ function show_all_thumbs() {
     return $thumblist;
 }
 
-function howdy_replace($wp_admin_bar) {
-    $my_account = $wp_admin_bar->get_node('my-account');
-    $newtitle = str_replace('Howdy,', 'Rotulos Sagarra', $my_account->title);
-    $wp_admin_bar->add_node(array(
-        'id' => 'my-account',
-        'title' => $newtitle,
-    ));
-}
 
-add_filter('admin_bar_menu', 'howdy_replace', 25);
+
 /* -----------------------------------------------------------------------------------
  * // Permite utilizar funciones del plugin Qtranslate
   /*----------------------------------------------------------------------------------- */
