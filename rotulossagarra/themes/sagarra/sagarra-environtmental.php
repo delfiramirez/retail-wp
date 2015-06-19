@@ -1,6 +1,6 @@
 <?php
 /**
- + Template Name: Senaletica
+ * Template Name: Senaletica
  * Contains  external gallery, links, etc.
  * #main and #page div elements.
  *
