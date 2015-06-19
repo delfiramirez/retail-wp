@@ -1,6 +1,6 @@
 <?php
 /**
-  Template Name: Clientes
+* Template Name: Clientes
  *
  * Contains  clent icons
  * #main and #page div elements.
