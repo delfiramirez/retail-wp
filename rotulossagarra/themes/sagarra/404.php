@@ -16,7 +16,6 @@ get_header();
         </h1>
     </header>
 
-
     <div class="page-content">
         <h2>
 <?php _e("<!--:en-->Request Not Found<!--:--><!--:es-->P&aacute;gina no encontrada<!--:--><!--:ca-->P&aacute;gina no trobada<!--:-->"); ?>
