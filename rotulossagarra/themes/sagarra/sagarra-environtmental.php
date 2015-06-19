@@ -1,6 +1,6 @@
 <?php
 /**
-  Template Name: Senaletica
+ + Template Name: Senaletica
  * Contains  external gallery, links, etc.
  * #main and #page div elements.
  *
@@ -42,7 +42,8 @@ get_header();
                             <dl>
 
                                 <a href="<?php the_permalink() ?>" rel="bookmark">
-                                    <?php echo get_the_post_thumbnail($post_id, 'sagarra-thumb'); ?></a>
+                                    <?php echo get_the_post_thumbnail($post_id, 'sagarra-thumb'); ?>
+                                </a>
 
                             </dl>
                         <?php endwhile; ?>
