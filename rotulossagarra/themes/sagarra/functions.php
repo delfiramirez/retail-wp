@@ -7,6 +7,15 @@ if (is_page_template() || is_attachment() || !is_active_sidebar('')) {
     $content_width = 850;
 }
 
+// Register Theme Features
+   /* ----------------------------------------------------------------------------------- */
+   function custom_theme_features() {
+
+       // Add theme support for Post Formats
+       $formats = array('status', 'quote', 'gallery', 'image', 'video', 'audio');
+       add_theme_support('post-formats', $formats);
+   }
+
 // Add support for backgrounds
 /* ----------------------------------------------------------------------------------- */
 add_custom_background();
@@ -641,6 +650,14 @@ function html5_search_form($form) {
 
 add_filter('get_search_form', 'html5_search_form');
 
+function sagarra_filter_HTML5_video ($output, $data, $url) {
+
+    $return = '<div class="video">' . $output . '</div>';
+    return $return;
+}
+
+add_filter('oembed_dataparse', 'sagarra_filter_HTML5_video', 90, 3);
+
 
 add_action('template_redirect', 'redirect_single_post');
 
@@ -703,13 +720,7 @@ function posts_custom_columns($column_name, $id) {
     }
 }
 
-/* ----------------------------------------------------------------------------------- */
 
-function sagarra_login_head() {
-    remove_action('login_head', 'wp_shake_js', 12);
-}
-
-add_action('login_head', 'sagarra_login_head');
 
 /* ----------------------------------------------------------------------------------- */
 add_filter('login_errors', create_function('$a', "return null;"));
@@ -888,11 +899,6 @@ function delfi_link_current_to_active($text) {
 
 add_filter('wp_nav_menu', 'delfi_link_current_to_active');
 /* ----------------------------------------------------------------------------------- */
-
-
-
-/* ----------------------------------------------------------------------------------- */
-
 function rt_post_join($join, $isc, $ec) {
     global $wpdb;
 
@@ -966,6 +972,17 @@ function media_custom_columns($column_name, $id) {
            <?php
        }
    }
+   
+      /* -----------------------------------------------------------------------------------------------------//
+     Remove shake
+     ------------------------------------------------------------------------------------------------------- */
+   
+function sagarra_login_head() {
+    remove_action('login_head', 'wp_shake_js', 12);
+}
+
+add_action('login_head', 'sagarra_login_head');
+
 
    /* -----------------------------------------------------------------------------------------------------//
      Custom Search Widget
@@ -1105,21 +1122,6 @@ function media_custom_columns($column_name, $id) {
    }
 
    add_action('init', 'delfi_widgets_init');
-
-   /* ----------------------------------------------------------------------------------- */
-
-
-   /* ----------------------------------------------------------------------------------- */
-
-// Register Theme Features
-   /* ----------------------------------------------------------------------------------- */
-   function custom_theme_features() {
-
-       // Add theme support for Post Formats
-       $formats = array('status', 'quote', 'gallery', 'image', 'video', 'audio');
-       add_theme_support('post-formats', $formats);
-   }
-
    /* ----------------------------------------------------------------------------------- */
 
    function excerpt($limit) {
@@ -1801,12 +1803,9 @@ function email_address_login($username) {
 add_action('wp_authenticate', 'email_address_login');
 
 
-/* ----------------------------------------------------------------------------------- */
-
-
 /* -----------------------------------------------------------------------------------
  * Archive para Optimizacion SEO eliminando palabras del SLUG del POST
-  /*----------------------------------------------------------------------------------- */
+/*----------------------------------------------------------------------------------- */
 
 function seo_slugs($slug) {
     if ($slug)
@@ -1828,7 +1827,7 @@ function seo_slugs_stop_words() {
 
 /* -----------------------------------------------------------------------------------
  * Archive que permite mostrar el contenido MENSUAL en el SITEMAP
-  /*----------------------------------------------------------------------------------- */
+ /*----------------------------------------------------------------------------------- */
 
 function bm_displayArchives() {
     global $month, $wpdb, $wp_version;
@@ -1867,13 +1866,7 @@ function bm_displayArchives() {
     }
 }
 
-function sagarra_filter($output, $data, $url) {
 
-    $return = '<div class="video">' . $output . '</div>';
-    return $return;
-}
-
-add_filter('oembed_dataparse', 'sagarra_filter', 90, 3);
 
 function image_alt_tag($content) {
     global $post;
