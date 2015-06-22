@@ -8,40 +8,47 @@
  * @package WordPress
  * @subpackage sagarra
  */
-get_header();
-query_posts('category_name=noticias&showposts=-1')
+get_header ();
+query_posts ('category_name=noticias&showposts=-1')
 ?>
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <div id="single-sagarra" <?php post_class(); ?>>
+
+<?php if ( have_posts () ) : while ( have_posts () ) : the_post (); ?>
+
+        <div id="single-sagarra" <?php post_class (); ?>>
 
             <div class="sagarra-post">
 
                 <div id="content-sagarra">
 
-                    <h1><?php the_title(); ?></h1>
+                    <h1>
+                        <?php the_title (); ?>
+                    </h1>
 
-                    <?php the_content(); ?>
+                    <?php the_content (); ?>
 
                 </div>
 
                 <div id="images-sagarra">
-                    <?php
-                    $args = array(
-                        'order' => 'random',
-                        'post_type' => 'attachment',
-                        'post_parent' => $post->ID,
-                        'post_mime_type' => 'image',
-                        'post_status' => null,
-                        'numberposts' => -1,
-                    );
-                    $attachments = get_posts($args);
-                    if ($attachments) {
-                        foreach ($attachments as $attachment) {
 
-                            echo wp_get_attachment_link($attachment->ID, 'resp-medium', false, false);
+                    <?php
+                    $args        = array (
+                        'order'          => 'random',
+                        'post_type'      => 'attachment',
+                        'post_parent'    => $post->ID,
+                        'post_mime_type' => 'image',
+                        'post_status'    => null,
+                        'numberposts'    => -1,
+                    );
+                    $attachments = get_posts ($args);
+                    if ( $attachments )
+                        {
+                        foreach ( $attachments as $attachment )
+                            {
+
+                            echo wp_get_attachment_link ($attachment->ID, 'resp-medium', false, false);
+                            }
                         }
-                    }
                     ?>
 
                 </div>
@@ -50,21 +57,23 @@ query_posts('category_name=noticias&showposts=-1')
 
             </div>
 
-            <p class="sagarra-category"><?php the_tags(); ?></p>
+            <p class="sagarra-category">
+                <?php the_tags (); ?>
+            </p>
 
-            <?php if (show_posts_nav()) : ?>
+            <?php if ( show_posts_nav () ) : ?>
 
                 <div class="post-navigation">
                     <div class="previous-post">
-                        <?php previous_post_link('%link'); ?>
+                        <?php previous_post_link ('%link'); ?>
                     </div>
                     <div class="next-post">
-                        <?php next_post_link('%link'); ?>
+                        <?php next_post_link ('%link'); ?>
                     </div>
                 </div>
 
             <?php endif; ?>
-            <?php rewind_posts(); ?>
+            <?php rewind_posts (); ?>
 
         </div>
 
@@ -73,13 +82,4 @@ query_posts('category_name=noticias&showposts=-1')
 endif;
 ?>
 </div>
-
-
-
-
-
-
-
-
-
-<?php get_footer(); ?>
+<?php get_footer (); ?>

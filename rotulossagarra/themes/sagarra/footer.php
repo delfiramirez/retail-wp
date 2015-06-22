@@ -20,23 +20,23 @@
 
         <div id="dividir">
             <?php
-            wp_nav_menu(array('container_class' => 'menu-inicio',
-                'theme_location' => 'inicio'));
+            wp_nav_menu (array ( 'container_class' => 'menu-inicio',
+                'theme_location'  => 'inicio' ));
             ?>
         </div>
         <div class="site-info">
-            <?php wp_nav_menu(array('theme_location' => 'externo')); ?>
-            <?php if (function_exists('qts_language_menu')) qts_language_menu('text'); ?>
-            <?php wp_nav_menu(array('theme_location' => 'pie-pagina')); ?>
+            <?php wp_nav_menu (array ( 'theme_location' => 'externo' )); ?>
+            <?php if ( function_exists ('qts_language_menu') ) qts_language_menu ('text'); ?>
+            <?php wp_nav_menu (array ( 'theme_location' => 'pie-pagina' )); ?>
         </div>
     </div>
 </footer>
 <script type="text/javascript">
-    Cufon.replace('#menu-submenu li, #menu-contacto li,h3, h4, h5,.categories h3');
+    Cufon.replace ('#menu-submenu li, #menu-contacto li,h3, h4, h5,.categories h3');
     fontFamily : "DIN"
     fontWeight: "bold"
 </script>
-<script src="http://segonquart.net/sagarra/src/js/scroll.js?<?php echo date('Y-m-d H:i:s'); ?>"></script>
+<script src="http://segonquart.net/sagarra/src/js/scroll.js?<?php echo date ('Y-m-d H:i:s'); ?>"></script>
 <!--
 <script src="http://segonquart.net/sagarra/src/js/scripts-sagarra2.js?<? /* php echo date('Y-m-d H:i:s'); */ ?>"></script>
 //-->
@@ -73,6 +73,6 @@ font-family:'cartogothic_stdbold';
 }
 </style>
 <![endif]-->
-<?php wp_footer(); ?>
+<?php wp_footer (); ?>
 </body>
 </html>

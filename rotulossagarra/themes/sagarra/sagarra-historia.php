@@ -6,7 +6,7 @@
  * @package WordPress
  * @subpackage sagarra
  */
-get_header();
+get_header ();
 ?>
 <div id="single-sagarra">
 
@@ -14,16 +14,18 @@ get_header();
 
         <div id="content-sagarra">
 
-            <h1 class="page-title"><?php the_title(); ?></h1>
+            <h1 class="page-title">
+                <?php the_title (); ?>
+            </h1>
         </div>
 
         <div id="sagarra-historia">
             <?php
-            echo do_shortcode(' [wp-timeline]');
+            echo do_shortcode (' [wp-timeline]');
             ?>
         </div>
 
     </div>
 
 </div>
-<?php get_footer(); ?>
+<?php get_footer (); ?>

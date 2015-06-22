@@ -8,7 +8,7 @@
  * @package WordPress
  * @subpackage sagarra
  */
-get_header();
+get_header ();
 ?>
 
 <div id="single-sagarra">
@@ -19,7 +19,9 @@ get_header();
         <div id="content-sagarra">
 
 
-            <h1 class="page-title"><?php the_title(); ?></h1>
+            <h1 class="page-title">
+                <?php the_title (); ?>
+            </h1>
 
 
         </div>
@@ -27,27 +29,33 @@ get_header();
         <div class="principal">
             <?php
             $recentPosts = new WP_Query();
-            $recentPosts->query('showposts=5&cat=-8');
+            $recentPosts->query ('showposts=5&cat=-8');
             ?>
-            <?php while ($recentPosts->have_posts()) : $recentPosts->the_post(); ?>
+            <?php while ( $recentPosts->have_posts () ) : $recentPosts->the_post (); ?>
                 <div id="project-sagarra">
 
                     <h3>
-                        <a href="<?php the_permalink() ?>" rel="bookmark">
-                            <?php the_title(); ?>
+                        <a href="<?php the_permalink () ?>" rel="bookmark">
+
+                            <?php the_title (); ?>
+
                         </a>
                     </h3>
 
                     <hr>
 
                     <a class ="alignright">
-                        <?php echo get_the_post_thumbnail($post_id, 'sagarra-thumb'); ?>
+
+                        <?php echo get_the_post_thumbnail ($post_id, 'sagarra-thumb'); ?>
                     </a>
+
                     <?php
                     global $more;
                     $more = 0;
                     ?>
-                    <p><?php the_content(__('<!--:en-->Continue reading <!--:--><!--:es-->Ver proyecto<!--:--><!--:ca-->Veure projecte<!--:-->' . '  ' . '<span class="meta-nav">&rarr;</span>')); ?></p>
+                    <p>
+                        <?php the_content (__ ('<!--:en-->Continue reading <!--:--><!--:es-->Ver proyecto<!--:--><!--:ca-->Veure projecte<!--:-->' . '  ' . '<span class="meta-nav">&rarr;</span>')); ?>
+                    </p>
 
 
                 </div>
@@ -58,4 +66,4 @@ get_header();
         </div>
 
     </div>
-    <?php get_footer(); ?>
+    <?php get_footer (); ?>
