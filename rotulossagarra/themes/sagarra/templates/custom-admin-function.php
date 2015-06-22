@@ -35,6 +35,7 @@ function sagarra_remove_admin_menu_items ()
 
 add_action ('admin_menu', 'sagarra_remove_admin_menu_items');
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -69,6 +70,7 @@ function sagarra_remove_menus ()
 
 add_action ('admin_menu', 'sagarra_remove_menus', 102);
 
+
 /* ----------------------------------------------------------------------------------- */
 /* Remove Unwanted Widgets
  *
@@ -90,7 +92,6 @@ function unregister_default_sagarra_widgets ()
 add_action ('widgets_init', 'unregister_default_sagarra_widgets', 1);
 
 
-
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -108,6 +109,7 @@ function sagarra_admin_bar ()
     }
 
 add_action ('wp_before_admin_bar_render', 'sagarra_admin_bar');
+
 
 /* -----------------------------------------------------------------------------------
 
@@ -143,6 +145,7 @@ function sagarra_login_head ()
 
 add_action ('login_head', 'sagarra_login_head');
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -155,11 +158,9 @@ function email_address_login ($username)
     return $username;
     }
 
-add_action ('wp_authenticate', 'email_address_login
+add_action ('wp_authenticate', 'email_address_login');
 
-');
-/* -----
- * ------------------------------------------------------------------------------
+/* ------------------------------------------------------------------------------
  *
  */
 
@@ -172,9 +173,8 @@ function sagarra_lostpassword_text ($text)
     return $text;
     }
 
-add_filter ('gettext ', 'sagarra_lostpassword_text
+add_filter ('gettext ', 'sagarra_lostpassword_text');
 
-');
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -188,9 +188,8 @@ function sagarra_volver_text ($text)
     return $text;
     }
 
-add_filter ('gettext ', 'sagarra_volver_text
+add_filter ('gettext ', 'sagarra_volver_text');
 
-');
 
 /* -----------------------------------------------------------------------------------
 
@@ -205,6 +204,7 @@ function admin_color_scheme ()
     }
 
 add_action ('admin_head', 'admin_color_scheme');
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -222,6 +222,7 @@ function add_sagarra_remove_contactmethods ($contactmethods)
 
 add_filter ('user_contactmethods', 'add_sagarra_remove_contactmethods', 10, 1);
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -232,6 +233,7 @@ function sagarra_remove_default_post_screen_metaboxes ()
     }
 
 add_action ('admin_menu', 'sagarra_remove_default_post_screen_metaboxes');
+
 
 /* -----------------------------------------------------------------------------------
  *
@@ -245,6 +247,7 @@ function sagarra_single_screen_columns ($columns)
 
 add_filter ('screen_layout_columns', 'sagarra_single_screen_columns');
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -256,6 +259,7 @@ function sagarra_single_screen_dashboard ()
 
 add_filter ('get_user_option_screen_layout_dashboard', 'sagarra_single_screen_dashboard');
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -264,6 +268,7 @@ if ( !current_user_can ('edit_posts') )
     {
     add_filter ('show_admin_bar', '__return_false');
     }
+
 
 /* -----------------------------------------------------------------------------------
  *
@@ -277,6 +282,7 @@ function sagarra_style_menu_class ($items)
     }
 
 add_filter ('wp_nav_menu_objects', 'sagarra_style_menu_class');
+
 
 /* -----------------------------------------------------------------------------------
  *
@@ -307,6 +313,7 @@ function sagarra_replace ($wp_admin_bar)
 
 add_filter ('admin_bar_menu', 'sagarra_replace', 25);
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -321,12 +328,6 @@ add_filter ('admin_footer_text', 'delfin_footer_admin');
 /* -----------------------------------------------------------------------------------
 
   // ADMIN: Pages and Sections
- *
- */
-
-
-
-/* -----------------------------------------------------------------------------------
  *
  */
 
@@ -508,6 +509,7 @@ function add_sagarra_recent_posts ()
 
 add_action ('wp_dashboard_setup', 'add_sagarra_recent_posts');
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -570,6 +572,7 @@ function delfi_widgets_init ()
 
 add_action ('init', 'delfi_widgets_init');
 
+
 /* -----------------------------------------------------------------------------------
   MEDIA UI
  *
@@ -596,6 +599,7 @@ x
 add_filter ('manage_media_columns ', 'sagarra_wh_column');
 add_action ('manage_media_custom_column ', 'sagarra_wh_value  ', 10, 2);
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
@@ -611,6 +615,7 @@ function sagarra_imagelink_setup ()
     }
 
 add_action ('admin_init', 'sagarra_imagelink_setup', 10);
+
 
 /* -----------------------------------------------------------------------------------
  *
@@ -636,14 +641,10 @@ function delim ($c)
 
 add_filter ('wp_list_categories', 'delim');
 
+
 /* -----------------------------------------------------------------------------------
  *
  */
-
-add_filter ('manage_posts_columns', 'posts_columns', 5);
-add_action ('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
-add_filter ('manage_pages_columns', 'posts_columns', 5);
-add_action ('manage_pages_custom_column', 'posts_custom_columns', 5, 2);
 
 function posts_columns ($defaults)
     {
@@ -659,6 +660,12 @@ function posts_custom_columns ($column_name, $id)
         }
     }
 
+add_filter ('manage_posts_columns', 'posts_columns', 5);
+add_action ('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
+add_filter ('manage_pages_columns', 'posts_columns', 5);
+add_action ('manage_pages_custom_column', 'posts_custom_columns', 5, 2);
+
+
 /* -----------------------------------------------------------------------------------
  * UI  Editor Mice
  */
@@ -671,6 +678,7 @@ function enable_more_buttons ($buttons)
     }
 
 add_filter ("mce_buttons_3", "enable_more_buttons");
+
 
 /* ----------------------------------------------------------------------------------- */
 /* Add Copyright
@@ -701,3 +709,4 @@ post_status = 'publish'
         }
     return $output;
     }
+?>
