@@ -3,6 +3,8 @@
  * Admin UI
  * Pages and Sections
  * Media Library
+ * @package WordPress
+ * @subpackage sagarra
  */
 
 /* -----------------------------------------------------------------------------------
