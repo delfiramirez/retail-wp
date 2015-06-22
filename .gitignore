@@ -14,3 +14,4 @@ wp-content/wp-cache-config.php
 build.xml
 
 .DS_Store
+/WP-RotulosSagarra/nbproject/private/
