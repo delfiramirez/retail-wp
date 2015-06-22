@@ -846,7 +846,7 @@ add_filter ('wp_nav_menu', 'delfi_link_current_to_active');
 class hermit_walker extends Walker_Nav_Menu
     {
 
-    function start_el (&$output, $item, $depth, $args)
+    function stasagarra_el (&$output, $item, $depth, $args)
         {
         global $wp_query;
         $indent = ( $depth ) ? str_repeat ("\t", $depth) : '';
@@ -891,7 +891,7 @@ class hermit_walker extends Walker_Nav_Menu
         $item_output .= '</a>';
         $item_output .= $args->after;
 
-        $output .= apply_filters ('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+        $output .= apply_filters ('walker_nav_menu_stasagarra_el', $item_output, $item, $depth, $args);
         }
 
     }
@@ -912,7 +912,7 @@ function cleanname ($v)
  *
  */
 
-function rt_post_join ($join, $isc, $ec)
+function sagarra_post_join ($join, $isc, $ec)
     {
     global $wpdb;
 
@@ -920,7 +920,7 @@ function rt_post_join ($join, $isc, $ec)
     return $join;
     }
 
-function rt_prev_post_where ($w)
+function sagarra_prev_post_where ($w)
     {
     global $wpdb, $post;
 
@@ -929,7 +929,7 @@ function rt_prev_post_where ($w)
     return $w;
     }
 
-function rt_next_post_where ($w)
+function sagarra_next_post_where ($w)
     {
     global $wpdb, $post;
 
@@ -938,13 +938,13 @@ function rt_next_post_where ($w)
     return $w;
     }
 
-function rt_prev_post_sort ($o)
+function sagarra_prev_post_sort ($o)
     {
     $o = "ORDER BY pm.meta_value DESC LIMIT 1";
     return $o;
     }
 
-function rt_next_post_sort ($o)
+function sagarra_next_post_sort ($o)
     {
     $o = "ORDER BY pm.meta_value ASC LIMIT 1";
     return $o;
@@ -976,7 +976,7 @@ endif;
  *
  */
 
-function redirect_single_post ()
+function sagarra_single_post ()
     {
     if ( is_search () )
         {
@@ -988,7 +988,7 @@ function redirect_single_post ()
         }
     }
 
-add_action ('template_redirect', 'redirect_single_post');
+add_action ('template_redirect', 'sagarra_single_post');
 
 /* -----------------------------------------------------------------------------------
  *
@@ -1069,6 +1069,10 @@ function sagarra_excerpt ($limit)
     $excerpt = preg_replace ('`\[[^\]]*\]`', '', $excerpt);
     return $excerpt;
     }
+
+/* -----------------------------------------------------------------------------------
+ *
+ */
 
 function sagarra_content ($limit)
     {
@@ -1175,13 +1179,13 @@ function bm_displayArchives ()
             DISTINCT YEAR(post_date) AS year,
             MONTH(post_date) AS month,
             count(ID) as posts
-        FROM ' . $wpdb->posts . '
-        WHERE post_status="publish"
+            FROM ' . $wpdb->posts . '
+            WHERE post_status="publish"
             AND post_type="post"
             AND post_password=""
-        GROUP BY YEAR(post_date),
+            GROUP BY YEAR(post_date),
             MONTH(post_date)
-        ORDER BY post_date DESC';
+            ORDER BY post_date DESC';
 
     $archiveSummary = $wpdb->get_results ($sql);
     if ( $archiveSummary )
@@ -1303,11 +1307,9 @@ function exclude_post_categories ($excl = '')
         }
     }
 
-//Amnesia de WP para las categorias : Comprobar si genera errores !!!
 /* -----------------------------------------------------------------------------------
- *
+ * Amnesia de WP para las categorias : Comprobar si genera errores !!!
  */
-
 
 function cure_wp_amnesia_on_query_string ($query_string)
     {
