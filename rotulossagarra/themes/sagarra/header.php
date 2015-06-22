@@ -87,17 +87,17 @@ else
                 font-family: 'cartogothic_stdbold';
                 src: url('/static/fonts/headers/CartoGothicStd-Bold-webfont.eot');
                 src: local('☺'),
-                    url('http://www.rotulossagarra.com/static/fonts/headers/CartoGothicStd-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-                    url('http://www.rotulossagarra.com/static/fonts/headers/CartoGothicStd-Bold-webfont.woff') format('woff'),
-                    url('http://www.rotulossagarra.com/static/fonts/headers/CartoGothicStd-Bold-webfont.ttf') format('truetype'),
-                    url('http://www.rotulossagarra.com/static/fonts/headers/CartoGothicStd-Bold-webfont.svg#cartogothic_stdbold') format('svg');
+                    url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.woff') format('woff'),
+                    url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.ttf') format('truetype'),
+                    url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.svg#cartogothic_stdbold') format('svg');
                 font-weight: normal;
                 font-style: normal;
             }
         </style>
 
-        <script  src="http://rotulosagarra.com/static/cufon/cufon-yui.js"></script>
-        <script src="http://rotulosagarra.com/static/cufon/DIN_500.font.js"></script>
+        <script  src="http://static.rotulosagarra.com/cufon/cufon-yui.js"></script>
+        <script src="http://static.rotulosagarra.com/cufon/DIN_500.font.js"></script>
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
@@ -109,7 +109,7 @@ else
                 function preloader(){
                 if (document.images) {
                     img1 = new Image();
-                    img1.src = "http://rotulosagarra.com/static/images/clientes.jpg";
+                    img1.src = "http://static.rotulosagarra.com/images/clientes.jpg";
                 }
                 }
 
