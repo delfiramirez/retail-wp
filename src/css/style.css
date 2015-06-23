@@ -463,7 +463,6 @@ audio:not([controls]) {
         height: 100%;
         min-height: 100%;
         font-size: 82.5%;
-
     }
 
     .scroller {
@@ -488,9 +487,6 @@ audio:not([controls]) {
         width: 100%;
         height: 100%;
         min-height: 100%;
-
-
-
     }
 
     body > .wrapper {
@@ -543,6 +539,7 @@ audio:not([controls]) {
     }
 
     ol {
+
         margin: 0px 0px 0px 20px;
         padding: 10px 0px 10px 0px;
     }
@@ -672,6 +669,7 @@ audio:not([controls]) {
     }
 
     table {
+
         border-collapse: collapse;
         border-spacing: 0;
     }
@@ -687,12 +685,14 @@ audio:not([controls]) {
 
 
     .align-right {
+
         padding: 5px;
         float: right;
         width: 0;
     }
 
     .align-left {
+
         padding: 5px;
         float: left;
     }
@@ -724,11 +724,13 @@ audio:not([controls]) {
 
     li > ul,
     li > ol {
+
         margin: 0 0 0 1.618em;
         list-style: none;
     }
 
     dl dt {
+
         font-weight: bold;
         font-size: 16px;
         font-size: 1rem;
@@ -738,6 +740,7 @@ audio:not([controls]) {
     }
 
     dl dd {
+
         float:left;
         z-index:90;
     }
@@ -748,6 +751,7 @@ audio:not([controls]) {
 
 
     a {
+
         color: #777;
         text-decoration: none;
         margin: 0;
@@ -794,10 +798,12 @@ audio:not([controls]) {
     }
 
     a:visited {
+
         opacity: .6;
     }
 
     img a {
+
         background: transparent;
     }
 
@@ -832,6 +838,7 @@ audio:not([controls]) {
     h4,
     h5,
     h6 {
+
         font-family: "Palatino" , "Times New Roman", Times, Georgia, serif;
         color: #333538;
         font-weight: 600;
@@ -843,6 +850,7 @@ audio:not([controls]) {
     }
 
     h2 {
+
         font-family: "Palatino" , "Times New Roman", Times, Georgia, serif;
         color: #333538;
         font-weight: 600;
@@ -856,6 +864,7 @@ audio:not([controls]) {
     h4 a,
     h5 a,
     h6 a {
+
         text-decoration: none;
     }
 
@@ -865,10 +874,12 @@ audio:not([controls]) {
     h4 a:hover,
     h5 a:hover,
     h6 a:hover {
+
         text-decoration: underline;
     }
 
     h1 {
+
         font-family: "Palatino" , "Times New Roman", Times, Georgia, serif;
         color: #8C938E;
         font-size: 4em;
@@ -883,6 +894,7 @@ audio:not([controls]) {
     }
 
     h2 {
+
         color: #333538;
         font-weight: 500;
         font-style: normal;
@@ -899,6 +911,7 @@ audio:not([controls]) {
     }
 
     h3 {
+
         text-rendering: optimizeLegibility;
         text-transform: capitalize;
         letter-spacing: 1px;
@@ -912,15 +925,18 @@ audio:not([controls]) {
     }
 
     h4 {
+
         line-height: 1.846153846;
         border-bottom: 2px solid #ccc;
     }
 
     h4:first-letter {
+
         text-transform: capitalize;
     }
 
     h5 {
+
         font-size: 1.2em;
         font-weight: 300;
         line-height: 0.846153846;
@@ -930,10 +946,12 @@ audio:not([controls]) {
     }
 
     h6 {
+
         font-size: 0.857em;
     }
 
     .sagarra-site-description {
+
         float: left;
         width: 50px;
         height: 50px;
@@ -943,6 +961,7 @@ audio:not([controls]) {
     }
 
     .sagarra-site-description h2 {
+
         text-indent: -9999.999em;
         font: 0/0 a;
         display: block;
