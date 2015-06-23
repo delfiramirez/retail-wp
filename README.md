@@ -1,5 +1,9 @@
 # Wordpress Theme Sagarra.
 
+
+![](https://github.com/delfiramirez/WP-RotulosSagarra/blob/master/assets/splash.png)
+
+
 aka framework-wp templates.
 
 Hand-Crafted Wordpress Template Theme for Rotulos Sagarra SA.
@@ -13,4 +17,3 @@ Copyright Delfi Ramirez @ Segonquart Studio HQ 2013-2014.
 All other content copyright or licensed by their respective authors.
 
 
-![](https://github.com/delfiramirez/WP-RotulosSagarra/blob/master/assets/splash.png)
