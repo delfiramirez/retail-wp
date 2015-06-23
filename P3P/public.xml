@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+  <EXPIRY max-age="604800" />
+  <POLICY name="public" discuri="http://www.rotulossagarra.com/nota-legal/">
+    <ENTITY>
+      <DATA-GROUP>
+        <DATA ref="#business.name">Rotulos Sagarra SA</DATA>
+        <DATA ref="#business.contact-info.postal.name">Rotulos Sagarra SA</DATA>
+        <DATA ref="#business.contact-info.postal.street">Parlament 55</DATA>
+        <DATA ref="#business.contact-info.postal.postalcode">08011</DATA>
+        <DATA ref="#business.contact-info.postal.city">Barcelona</DATA>
+        <DATA ref="#business.contact-info.postal.country">SPAIN</DATA>
+        <DATA ref="#business.contact-info.online.email">delfin@segonquart.net</DATA>
+        <DATA ref="#business.contact-info.telecom.telephone.intcode">34</DATA>
+        <DATA ref="#business.contact-info.telecom.telephone.loccode">93</DATA>
+        <DATA ref="#business.contact-info.telecom.telephone.number">00000</DATA>
+        <DATA ref="#business.contact-info.online.uri">http://www.rotulossagarra.com/contact/</DATA>
+      </DATA-GROUP>
+    </ENTITY>
+    <ACCESS>
+      <nonident />
+    </ACCESS>
+    <DISPUTES-GROUP>
+      <DISPUTES resolution-type="service" service="http://www.rotulossagarra.com" short-description="delfin@segonquart.net />
+        <LONG-DESCRIPTION>The Webmaster and our Communications Team will carefully consider the input and correct errors. If you discover privacy invasive behavior, please don't hesitate to contact us.</LONG-DESCRIPTION>
+        <IMG src="http://static.rotulossagarra.com/images/logo.jpg" width="148" height="148" alt="Logo Rotulos Sagarra SA" />
+        <REMEDIES>
+          <correct />
+        </REMEDIES>
+      </DISPUTES>
+    </DISPUTES-GROUP>
+    <STATEMENT>
+      <CONSEQUENCE>We collect normal Web-Logs. They are used for Server administration, Web protocol research, Statistics of usage and security. Those logs are anonymized after one year.</CONSEQUENCE>
+      <PURPOSE>
+        <current />
+        <admin />
+        <develop />
+      </PURPOSE>
+      <RECIPIENT>
+        <ours>
+          <recipient-description>The logs and other information go to our system-team. They keep logs confidential so they are not accessible for all staff</recipient-description>
+        </ours>
+      </RECIPIENT>
+      <RETENTION>
+        <business-practices />
+      </RETENTION>
+      <DATA-GROUP>
+        <DATA ref="#dynamic.clickstream" />
+        <DATA ref="#dynamic.http.useragent" />
+        <DATA ref="#dynamic.http.referer" />
+      </DATA-GROUP>
+    </STATEMENT>
+  </POLICY>
+</POLICIES>
