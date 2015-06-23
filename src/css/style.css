@@ -1622,8 +1622,14 @@ audio:not([controls]) {
 
     #images-sagarra {
 
+        display: table-cell;
         float: none !important;
+        content: "";
+        display: block;
+        overflow: hidden;
         position:relative;
+
+        vertical-align: top;
         padding-left: 0px;
         padding-right: 0px;
         padding-bottom: 0px;
@@ -1636,13 +1642,10 @@ audio:not([controls]) {
         width: 75%;
         max-width: 75%;
         text-align: justify;
-        content: "";
-        display: block;
-        overflow: hidden;
+
         line-height: normal;
         background: #f9F9F9;
-        display: table-cell;
-        vertical-align: top;
+
         -o-box-shadow : -4px 0px 3px 1px #ccc;
         -moz-box-shadow: -4px 0px 3px 1px #ccc;
         -webkit-box-shadow: -4px 0px 3px 1px #ccc;
@@ -1655,11 +1658,12 @@ audio:not([controls]) {
     #images-sagarra h4,
     #images-sagarra h1 {
 
+        display: block;
         margin: 0 0 .58em 0;
         padding: 10px;
         line-height: 35px;
         border-bottom: 1px #ededed dotted;
-        display: block;
+
     }
 
     #images-sagarra p {
@@ -1690,10 +1694,11 @@ audio:not([controls]) {
 
     #images-sagarra img {
 
-        vertical-align: top;
+
         outline:none;
         cursor: pointer;
         padding: 0;
+        vertical-align: top;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -1707,33 +1712,36 @@ audio:not([controls]) {
     #menu-senaletica-general{
 
         position:relative;
+        display:block;
+        height:30px;
+        margin:auto;
+        width: 600px;
         padding: 3px 10px;
         line-height: 18px;
         border-top: 1px solid #eee;
         border-bottom:1px solid #eee;
         background: transparent;
-        display:block;
-        height:30px;
-        margin:auto;
-        width: 600px;
+
 
     }
 
     #menu-senaletica-general ul{
-        text-align:center;
+
         width: 600px;
         font-size: 120%;
+        text-align:center;
     }
 
     #menu-senaletica-general li{
 
-        font-family: "cartogothic_stdbold", Helvetica, Arial, sans-serif;
         display:inline;
+        font-family: "cartogothic_stdbold", Helvetica, Arial, sans-serif;
+        text-transform:uppercase;
         list-style-type:none;
         padding-left:1em;
         margin-left:1em;
         border-left:1px solid #ccc;
-        text-transform:uppercase;
+
     }
 
     #menu-senaletica-general li:first-child {
@@ -1748,6 +1756,7 @@ audio:not([controls]) {
     }
 
     #menu-senaletica-general a:hover {
+
         font-weight:bold;
         color: #d0d4c9;
     }
@@ -1768,6 +1777,7 @@ audio:not([controls]) {
     }
 
     #menu-senaletica-general li a:hover {
+
         font-weight:bold;
         color: #d0d4c9;
     }
@@ -1781,9 +1791,10 @@ audio:not([controls]) {
     .pagina, .pagina-clientes {
 
         position: relative;
+        overflow: hidden;
         float: left;
         margin:0 auto;
-        overflow: hidden;
+
         background: transparent;
     }
 
@@ -1803,11 +1814,12 @@ audio:not([controls]) {
     .pagina-clientes img {
 
         float: left;
-        padding: 0;
-        background: transparent;
+
         display: inline-block;
         cursor: pointer;
         border: none;
+        padding: 0;
+        background: transparent;
     }
 
     /*=Titles
