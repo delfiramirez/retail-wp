@@ -983,12 +983,14 @@ audio:not([controls]) {
         border: 1px solid #c84927;
         font-family: "Palatino" , "Times New Roman", Times, Georgia, serif;
         font-style: normal;
+        font-size: 11px;
         font-weight: 500;
         color: #21759b;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 1px;
         text-align: center;
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+
     }
 
     button:hover,
@@ -1012,10 +1014,9 @@ audio:not([controls]) {
     button,
     input,
     textarea {
+        font-family: inherit;
         border: 1px solid #ccc;
         border-radius: 3px;
-        font-family: inherit;
-        padding: 6px;
         padding: 0.428571429rem;
     }
 
@@ -1046,9 +1047,11 @@ audio:not([controls]) {
     }
 
     textarea {
-        font-size: 100%;
+
         overflow: auto;
         vertical-align: top;
+        font-size: 100%;
+
     }
 
     input[type="checkbox"],
@@ -1057,6 +1060,7 @@ audio:not([controls]) {
     input[type="hidden"],
     input[type="image"],
     input[type="color"] {
+
         border: 0;
         border-radius: 0;
         padding: 0;
@@ -1068,12 +1072,13 @@ audio:not([controls]) {
 
     .wrapper {
 
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+
         -webkit-font-smoothing: antialiased;
         -moz-font-smoothing: antialiased;
         -ms-font-smoothing: antialiased;
@@ -1097,20 +1102,22 @@ audio:not([controls]) {
 
     .top-sagarra {
 
-        overflow: hidden;
-        display: block;
-        text-align: center;
         position: fixed;
         position: device-fixed;
         z-index: 1200;
         top: 0;
         left: 0;
+        overflow: hidden;
+        display: block;
+        text-align: center;
+
+
         width: 100%;
         min-width: 100%;
-        background-color: #fff;
         height: 60px;
         max-height: 60px;
         color: #686868;
+        background-color: #fff;
         border-bottom: 1px solid #fafafa;
         -webkit-box-shadow: 1px 1px 4px #bbb;
         -moz-box-shadow: 1px 1px 4px #bbb;
@@ -1138,13 +1145,14 @@ audio:not([controls]) {
     }
 
     #main {
+        position: absolute;
 
         width: 100%;
         height: 100%;
         min-height: 100%;
         margin: 0;
         padding: 0;
-        position: absolute;
+
         -moz-box-sizing:border-box;
         -webkit-box-sizing:border-box;
         -o-box-sizing:border-box;
@@ -1205,13 +1213,14 @@ audio:not([controls]) {
         letter-spacing:0.5px;
         font-size: 180%;
         color: #505A53;
-        text-decoration:none;
+
         display: block;
         height: 30px;
         width: 210px;
         padding: 0;
         margin-left: 5px;
         text-rendering: optimizeLegibility;
+        text-decoration:none;
         opacity: .66;
         filter: alpha(opacity=56);
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=56)";
@@ -1230,10 +1239,11 @@ audio:not([controls]) {
 
         *zoom: 1;
         display: block;
+        height: 48px;
         margin: 0 0 30px;
         background: white;
         border: 1px solid #90939a;
-        height: 48px
+
     }
 
     header .search-box:before,
@@ -1250,12 +1260,13 @@ audio:not([controls]) {
 
     header .search-box input {
 
-        font-style: normal;
+        height: 48px;
         display: block;
         border: none;
         margin: 0;
-        height: 48px;
+
         font-size: 17px;
+        font-style: normal;
         line-height: 48px
     }
 
@@ -1276,8 +1287,9 @@ audio:not([controls]) {
         float: right;
         width: 30%;
         padding: 0 20px;
-        background-color: #f4f6f8;
+
         color: #90939a;
+        background-color: #f4f6f8;
         text-align: center
     }
 
@@ -1285,19 +1297,21 @@ audio:not([controls]) {
     header .search-box input.search-submit:active,
     .header .search-box input.search-submit:focus {
 
+        color: #333;
         background-color: rgba(0,0,0,0.1);
-        color: #333
+
     }
 
     #s {
-
+        width: 200px;
+        margin: 0;
+        padding: 10px 20px 10px 8px;
         color: #999999;
         font-family: "Palatino" , "Times New Roman", Times, Georgia, serif;
         font-size: 12px;
-        margin: 0;
-        padding: 10px 20px 10px 8px;
+
         text-transform: lowercase;
-        width: 200px;
+
         transition-duration: 400ms;
         transition-property: width, background;
         transition-timing-function: ease;
@@ -1311,23 +1325,25 @@ audio:not([controls]) {
 
     #searchsubmit {
 
-        text-indent: -9999px;
-        background-image: url('http://static.rotulossagarra.com/images/searchsubmit.png');
-        border: medium none;
         height: 23px;
         width: 21px;
+        text-indent: -9999px;
+
+        border: medium none;
         background-color: white;
+        background-image: url('http://static.rotulossagarra.com/images/searchsubmit.png');
     }
 
     /*=Content
     -------------------------------------------*/
 
     #container {
-
+        position:relatiuve;
+        overflow: hidden;
         max-width: 100%;
         min-height: 100%;
         height: 100%;
-        overflow: hidden;
+
     }
 
     .content {
@@ -1335,27 +1351,30 @@ audio:not([controls]) {
         float: right;
         width: 100%;
         min-height: 100%;
+        height: 1;
         padding: 0;
         z-index: 0;
-        height: 1;
+
         margin-left: 20% !important;
     }
 
     #single-sagarra {
 
-        margin-top: 60px !important;
-        margin-bottom: 100px !important;
-        width: 100% !important;
-        min-width:250px;
-        text-align: center;
-        background: #F8F9F8;
-        min-height: 100%;
-        height: 100%;
-        padding: 0;
         content: "";
         overflow-x: hidden;
         position: relative;
         display: table;
+
+        margin-top: 60px !important;
+        margin-bottom: 100px !important;
+        width: 100% !important;
+        min-width:250px;
+        min-height: 100%;
+        height: 100%;
+        padding: 0;
+        text-align: center;
+        background: #F8F9F8;
+
         vertical-align: middle;
         -moz-box-sizing:border-box;
         -webkit-box-sizing:border-box;
@@ -1364,11 +1383,13 @@ audio:not([controls]) {
         box-sizing:border-box;
     }
 
-    div#content-sagarra, #content-sagarra {
+    div#content-sagarra,
+    #content-sagarra {
 
         float: none !important;
         display: block;
-        text-align: left;
+        display: table-cell;
+        vertical-align: top;
         top: 0;
         bottom: 0;
         margin-top: 30px !important;
@@ -1382,9 +1403,9 @@ audio:not([controls]) {
         height: 100% !important;
         height: auto;
         min-height: 100%;
-        display: table-cell;
-        vertical-align: top;
+
         border-right: 1px solid #ddd;
+        text-align: left;
 
         -moz-column-rule: 1px solid #ddccb5;
         -webkit-column-rule: 1px solid #ddccb5;
@@ -1404,30 +1425,31 @@ audio:not([controls]) {
 
     #breadcrumbs {
 
-        font-size: 12px;
         margin-top: 20px;
         padding-top: 15px;
+        font-size: 12px;
+
         border-top: 1px solid #eee;
         color: #777;
     }
 
     #content-sagarra h1 {
 
-        text-overflow: ellipsis;
+        clear: both;
         font-family: "cartogothic_stdbold", Helvetica, Arial, sans-serif;
         font-weight: bold;
         font-style: normal;
+        font-size: 200%;
         color: #505A53;
+        text-overflow: ellipsis;
         text-rendering: optimizeLegibility;
-        margin-top: 0.2em;
-        margin-bottom: 0.5em;
         line-height: 1.2125em;
         text-transform: uppercase;
-        font-size: 200%;
+
         max-width: 300px;
         margin: 0 .38em 0;
         line-height: 44px;
-        clear: both;
+
         padding-top: 20px;
         padding-bottom: 10px;
         letter-spacing:-1px;
@@ -1437,14 +1459,16 @@ audio:not([controls]) {
     #content-sagarra h2 {
 
         font-family: "cartogothic_stdbold", Helvetica, Arial, sans-serif;
+        font-weight: normal;
         border-bottom: 3px solid #ccc;
         max-width: 295px;
         margin: 16px 0 .58em 0;
         padding: 10px;
-        font-weight: normal;
-        text-transform: uppercase;
+
+
         letter-spacing: -1px;
         color: #505A53;
+        text-transform: uppercase;
         text-rendering: optimizeLegibility;
         line-height: 1.332em;
         padding-bottom: 5px;
@@ -1461,23 +1485,26 @@ audio:not([controls]) {
     #content-sagarra h5 {
 
         font-family: "cartogothic_stdbold", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        font-size: 120%;
         line-height: 1.032em;
         max-width: 300px;
         margin: 0 .58em 0;
-        font-weight: normal;
+
         text-transform: uppercase;
-        font-size: 120%;
+
     }
 
     #content-sagarra p {
 
-        text-overflow: ellipsis;
+
         line-height: 1.432em;
-        text-align: left;
-        padding-top: 16px;
         margin-left: 15px;
         margin-right: 9px;
         max-width: 300px;
+        padding-top: 16px;
+        text-align: left;
+        text-overflow: ellipsis;
         text-shadow: -1px -1px white;
     }
 
@@ -1488,22 +1515,24 @@ audio:not([controls]) {
 
     .bg-sagarra {
 
-        opacity: 0.9;
-        float: right !important;
-        box-shadow: -1px 3px 15px rgba(0,0,0,0.25);
         position: relative;
-        background-image: url("http://static.rotulossagarra.com/images/sagarra-planol.jpg");
-        background-position: top right;
-        background-repeat: no-repeat;
+
+        float: right !important;
+
         min-width: 100%;
         max-width: 70%;
         min-height: 100%;
         width: 740px;
         height:100%;
+        box-shadow: -1px 3px 15px rgba(0,0,0,0.25);
+        background-image: url("http://static.rotulossagarra.com/images/sagarra-planol.jpg");
+        background-position: top right;
+        background-repeat: no-repeat;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        opacity: 0.9;
     }
 
     body:last-child #contact-sagarra {
@@ -1513,13 +1542,17 @@ audio:not([controls]) {
 
     #contact-sagarra {
 
+        display: table-cell;
+
         float: none !important;
+        overflow: hidden;
+        vertical-align: top;
         width: 60%;
         padding: 0;
         margin: 0 auto;
         min-height: 100%;
         text-align: left;
-        overflow: hidden;
+
         height: 100%;
         height: 100vh;
         min-height: 100vh;
@@ -1528,13 +1561,13 @@ audio:not([controls]) {
         box-shadow: -1px 3px 15px rgba(0,0,0,0.25);
         filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa,direction=0,strength=5);
         background-color: #f8f8f8;
-        display: table-cell;
-        vertical-align: top;
+
     }
 
     #title-sagarra{
 
         position:relative;
+        overflow: visible;
         float: none !important;
         font-family: "cartogothic_stdbold", Helvetica, Arial, sans-serif;
         display:table-cell;
@@ -1545,7 +1578,7 @@ audio:not([controls]) {
         background: #f9F9F9;
         min-height: 90%;
         text-align: left;
-        overflow: visible;
+
         height: 900%;
         height: 90vh;
         min-height: 90vh;
