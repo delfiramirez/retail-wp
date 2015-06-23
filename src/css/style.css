@@ -3299,15 +3299,21 @@ div.tiled-gallery-caption
     img.alignright,
     img.aligncenter,
     img.alignnone,
-    .wp-caption { display: block; width: 100% !important; margin: 0 auto; }
+    .wp-caption {
+        display: block;
+        width: 100% !important;
+        margin: 0 auto;
+    }
 
 }
 
-/* styles for mobile */
+
 @media screen and (max-width: 37.5em) {
+
     .tinynav { display: block }
     .nav-list { display: none }
 }
+
 @media only screen and (max-width: 400px)  and (max-device-width: 480px) and (orientation : portrait)
 {
 
@@ -3330,12 +3336,17 @@ div.tiled-gallery-caption
         -moz-column-count: 1;
         -webkit-column-count: 1;
         column-count: 1;
-    };
+    }
+
     .lateral
     {
         display: none;
-    };
-    .info{display:none;}
+    }
+
+    .info
+    {
+        display:none;
+    }
 
 }
 
@@ -3353,10 +3364,16 @@ div.tiled-gallery-caption
         padding-bottom: 5px;
     }
 
-    #header .top-sagarra, #home-sagarra, #front-sagarra, #single-sagarra, #menu-inicio, #menu-senyaletica
+    #header .top-sagarra,
+    #home-sagarra,
+    #front-sagarra,
+    #single-sagarra,
+    #menu-inicio,
+    #menu-senyaletica
     {
         margin-bottom: 5px;
     }
+
     .info{display:none;}
 
     #menu-inicio ul
@@ -3368,11 +3385,14 @@ div.tiled-gallery-caption
     {
         display: none;
     }
-    .menu {
+
+    .menu
+    {
         background: #fff;
     }
 
-    .menu li li {
+    .menu li li
+    {
         width: 100%;
         border: none;
         margin:0;
@@ -3387,15 +3407,18 @@ div.tiled-gallery-caption
         background: linear-gradient(top, #ffffff 0%,#666666 100%); /* W3C */
     }
 
-    .menu li:first-child {
+    .menu li:first-child
+    {
         border-top: none;
     }
 
-    .menu li:last-child {
+    .menu li:last-child
+    {
         border-bottom: none;
     }
 
-    .menu li a {
+    .menu li a
+    {
         padding: 0;
         font-size: 1.2em;
         line-height: 1em;
@@ -3405,12 +3428,15 @@ div.tiled-gallery-caption
 }
 
 @media only screen and (max-width: 600px) {
-    nav li {
+
+    nav li
+    {
         width: 100%;
         box-sizing: border-box;
     }
 
-    nav a {
+    nav a
+    {
         background: rgba(0,0,0,0.5);
         padding: 10px 12px;
         text-align: left;
