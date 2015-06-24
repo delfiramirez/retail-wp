@@ -3474,7 +3474,7 @@ div.tiled-gallery-caption
 {
     font-family: 'cartogothic_stdbold';
     src: url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.eot');
-    src: local('â˜º'), url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    src: local('☺'), url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.eot?#iefix') format('embedded-opentype'),
         url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.woff') format('woff'),
         url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.ttf') format('truetype'),
         url('http://static.rotulossagarra.com/fonts/headers/CartoGothicStd-Bold-webfont.svg#cartogothic_stdbold') format('svg');
