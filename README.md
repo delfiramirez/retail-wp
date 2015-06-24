@@ -1,4 +1,4 @@
-# Wordpress Theme Sagarra.
+# Custom Wordpress Theme Sagarra
 
 
 ![](https://github.com/delfiramirez/WP-RotulosSagarra/blob/master/assets/splash.png)
