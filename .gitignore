@@ -1,17 +1,15 @@
 *.log
 sitemap.xml.gz
 wp-config.php
-wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/
 wp-content/blogs.dir/
 wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
-wp-content/wp-cache-config.php
+
 
 /nbproject
 build.xml
 
 .DS_Store
-/WP-RotulosSagarra/nbproject/private/
