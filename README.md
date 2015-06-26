@@ -13,14 +13,14 @@ A professional template brought here, for your educational or recreational purpo
 
 1. Unzip.
 2. Install into wp-content > themes.
-3. Customize templates and header for your needs.
-4. Edit the DNS zone in your server to set up a subdomain.
-5. Place /src/, /assets/ into the subdomain.
-4. Extend and modify functions.php
+3. Customize templates and header to serve your needs.
+4. Edit the DNS zones in your server to set up a subdomain.
+5. Place /src/ and /assets/ folders into the new subdomain.
+4. Extend, customize and modify functions.php.
 
 
 Copyright Delfi Ramirez @ Segonquart Studio HQ 2013-2014.
 
-All other content copyrighted or licensed by their respective authors.
+All other content is copyrighted or licensed by their respective authors.
 
 
