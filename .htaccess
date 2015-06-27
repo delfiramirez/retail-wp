@@ -139,3 +139,31 @@ Header set Access-Control-Allow-Origin "*"
 Header set Cache-Control "max-age=0"
 </IfModule>
 </FilesMatch>
+#https://www.webmasterworld.com/forum13/687-9-15.htm
+<Files .htaccess>
+deny from all
+</Files>
+RewriteEngine on 
+RewriteBase / 
+RewriteCond %{HTTP_USER_AGENT} ^EmailSiphon [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^EmailWolf [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^ExtractorPro [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla.*NEWT [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^Crescent [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^CherryPicker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^[Ww]eb[Bb]andit [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^WebEMailExtrac.* [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^NICErsPRO [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^Teleport [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^Zeus.*Webster [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^Microsoft.URL [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^Wget [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^LinkWalker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^sitecheck.internetseer.com [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ia_archiver [OR]
+RewriteCond %{HTTP_USER_AGENT} ^DIIbot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^psbot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailCollector 
+RewriteRule ^.* - [F]
+RewriteCond %{HTTP_REFERER} ^http://www.iaea.org$ 
+RewriteRule !^http://[^/.]\.your-site.com.* - [F] 
