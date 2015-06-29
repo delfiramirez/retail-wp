@@ -5,6 +5,11 @@ Order Allow,Deny
 Deny from all
 </FilesMatch>
 
+Header set X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options "nosniff"
+Header set P3P "policyref=\"http://www.rotulossagarra.com/P3P/p3p.xml\"" 
+Header unset X-Powered-By
+ServerSignature Off
 
 ## LIMIT UPLOAD FILE SIZE TO PROTECT AGAINST DOS ATTACK
 #bytes, 0-2147483647(2GB)
