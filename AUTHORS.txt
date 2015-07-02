@@ -1,0 +1,17 @@
+AUTHORS
+
+Project management : Delfi Ramírez <delfin@segonquart.net>
+
+Concept & Photography : Jaume Sagarra
+
+Graphical Design : J. Mas <diseño@rotulossagarra.com>
+
+Translation EN : Universitat de Vic
+
+Translation ES/CA : Marta Ribas
+
+Client /Server Programming, Development & Digital Design : Delfi Ramírez <delfin@segonquart.net>
+
+Company: SEGONQUART STUDIO HQ
+
+Date of Release : 2013
