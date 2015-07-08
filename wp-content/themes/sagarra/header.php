@@ -40,7 +40,7 @@ else
         <meta name="MobileOptimized" content="360">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
-        <link rel="P3Pv1" href="http://rotulossagarra.com/P3P/public.xml">
+        <link rel="P3Pv1" href="http://rotulossagarra.com/public/P3P/public.xml">
 
         <link rel="apple-touch-startup-image" href="http://static.rotulossagarra.com/images/sagarra-startup.png">
         <link rel="apple-touch-icon" href="http://static.rotulossagarra.com/images/sagarra-touch-icon-iphone.png">
