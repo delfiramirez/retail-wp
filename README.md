@@ -1,7 +1,7 @@
 # Custom Wordpress Theme Sagarra
 
 
-![](https://github.com/delfiramirez/WP-RotulosSagarra/blob/master/assets/splash.png)
+![](https://github.com/delfiramirez/WP-RotulosSagarra/blob/master/public/assets/splash.png)
 
 
 
