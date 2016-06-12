@@ -2,8 +2,6 @@ AUTHORS
 
 Project management : Delfi Ramírez <delfin@segonquart.net>
 
-Concept & Photography : Jaume Sagarra
-
 Graphical Design : J. Mas <diseño@rotulossagarra.com>
 
 Translation EN : Universitat de Vic
