@@ -6,7 +6,7 @@ Graphical Design : J. Mas <diseño@rotulossagarra.com>
 
 Translation EN : Universitat de Vic
 
-Translation ES/CA : Marta Ribas
+Translation ES/CA : Marta Ribas Rulo
 
 Client /Server Programming, Development & Digital Design : Delfi Ramírez <delfin@segonquart.net>
 
